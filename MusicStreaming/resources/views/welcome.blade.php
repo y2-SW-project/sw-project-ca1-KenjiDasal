@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.test2')
 
 @section('content')
 <div class="container">
@@ -18,7 +18,7 @@
 
                     read more <a href="{{ route('about')}}">About us</a>
 
-                   
+
                 </div>
             </div>
         </div>
