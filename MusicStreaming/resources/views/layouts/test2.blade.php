@@ -45,8 +45,8 @@ sign up --}}
         <ul>
             <li><a href="{{ url('/') }}"><i class="fas fa-home"></i>Home</a></li>
             <li><a  href="{{ url('/Playlist') }}"><i class="fas fa-user"></i>Playlist</a></li>
-            <li><a  href="{{ url('/History') }}"><i class="fas fa-address-card"></i>About</a></li>
-            <li><a  href="{{ url('/Purchase') }}"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a  href="{{ url('/History') }}"><i class="fas fa-address-card"></i>History</a></li>
+            <li><a  href="{{ url('/Purchase') }}"><i class="fas fa-project-diagram"></i>Purchase</a></li>
 
         </ul>
 
@@ -55,19 +55,19 @@ sign up --}}
             <li><a href="{{ url('/Playlist') }}"><i class="fas fa-address-book"></i>Keith</a></li>
             <li><a href="{{ url('/Playlist') }}"><i class="fas fa-map-pin"></i>Kenji</a></li>
         </ul>
-        <div class="social_media">
+        <div class="">
             <ul class=" ms-auto">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <li>
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <li>
+                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
