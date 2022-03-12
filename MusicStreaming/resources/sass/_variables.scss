@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #f3f5f9;
+    --bs-body-bg: rgb(46, 3, 47);
 }
 
 .wrapper {
@@ -43,7 +43,7 @@ body {
 }
 
 .wrapper .sidebar ul li a {
-    color: #bdb8d7;
+    color: #ffffff;
     display: block;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .wrapper .sidebar ul li:hover {
-    background-color: #594f8d;
+    background-color: #f786ff8b;
 }
 
 .wrapper .sidebar ul li:hover a {
@@ -106,4 +106,16 @@ body {
     .social_media {
         display: none !important;
     }
+}
+
+.w-text {
+    color: #ffffff;
+}
+
+.boxes {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    background: black;
+    color: white;
 }
