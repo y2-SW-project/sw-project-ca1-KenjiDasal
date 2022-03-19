@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+/*# sourceMappingURL=app.css.map */is.com/css?family=Josefin+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  --bs-body-bg: black;
+}
+
+.main_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.main_content .header {
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.main_content .info {
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.main_content .info div {
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px) {
+  .social_media {
+    display: none !important;
+  }
+}
+
+.w-text {
+  color: #ffffff;
+}
+
+.boxes {
+  width: 100px;
+  height: 100px;
+  padding: 15px;
+  margin: 15px;
+  background: black;
+  color: white;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "mappings": "AACA,OAAO,CAAC,qDAAI",
+    "sources": [
+        "../vendor/laravel/ui/src/Presets/bootstrap-stubs/app.scss",
+        "../vendor/laravel/ui/src/Presets/bootstrap-stubs/_variables.scss",
+        "../vendor/laravel/ui/src/Presets/bootstrap-stubs/~bootstrap/scss/bootstrap"
+    ],
+    "names": [],
+    "file": "app.css"
+}KAAK;EACb,MAAM,EAAE,sBAAsB;EAC9B,UAAU,EAAE,KAAK;EACjB,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,MAAM;CACrB;;AAED,AAAA,aAAa,CAAC,OAAO,CAAC;EAClB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,OAAO;EACd,aAAa,EAAE,iBAAiB;CACnC;;AAED,AAAA,aAAa,CAAC,KAAK,CAAC;EAChB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,IAAI;CACpB;;AAED,AAAA,aAAa,CAAC,KAAK,CAAC,GAAG,CAAC;EACpB,aAAa,EAAE,IAAI;CACtB;;AAED,MAAM,EAAE,UAAU,EAAE,KAAK;EACrB,AAAA,aAAa,CAAC;IACV,OAAO,EAAE,eAAe;GAC3B;;;AAGL,AAAA,OAAO,CAAC;EACJ,KAAK,EAAE,OAAO;CACjB;;AAED,AAAA,MAAM,CAAC;EACH,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,IAAI;EACb,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "../resources/sass/app.scss",
+        "../resources/sass/_variables.scss"
+    ],
+    "names": [],
+    "file": "app.css"
+}

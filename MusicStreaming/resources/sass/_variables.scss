@@ -9,96 +9,33 @@
 }
 
 body {
-    --bs-body-bg: rgb(46, 3, 47);
+    --bs-body-bg: black;
 }
 
-.wrapper {
+.main_content {
     display: flex;
-    position: relative;
+    flex-wrap: nowrap;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-.wrapper .sidebar {
-    width: 200px;
-    height: 100%;
-    background-image: linear-gradient(rgb(87, 19, 94), rgb(230, 17, 201));
-    padding: 30px 0px;
-    position: fixed;
-}
-
-.wrapper .sidebar a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.wrapper .sidebar h2 {
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.wrapper .sidebar ul li {
-    padding: 15px;
-    border-bottom: 1px solid #bdb8d7;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.wrapper .sidebar ul li a {
-    color: #ffffff;
-    display: block;
-}
-
-.wrapper .sidebar ul li a .fas {
-    width: 25px;
-}
-
-.wrapper .sidebar ul li:hover {
-    background-color: #f786ff8b;
-}
-
-.wrapper .sidebar ul li:hover a {
-    color: #fff;
-}
-
-.wrapper .sidebar .social_media {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-.wrapper .sidebar .social_media a {
-    display: block;
-    width: 40px;
-    background: #594f8d;
-    height: 40px;
-    line-height: 45px;
-    text-align: center;
-    margin: 0 5px;
-    color: #bdb8d7;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.wrapper .main_content {
-    width: 100%;
-    margin-left: 200px;
-}
-
-.wrapper .main_content .header {
+.main_content .header {
     padding: 20px;
     background: #fff;
     color: #717171;
     border-bottom: 1px solid #e0e4e8;
 }
 
-.wrapper .main_content .info {
+.main_content .info {
     margin: 20px;
     color: #717171;
     line-height: 25px;
 }
 
-.wrapper .main_content .info div {
+.main_content .info div {
     margin-bottom: 20px;
 }
 
@@ -113,8 +50,9 @@ body {
 }
 
 .boxes {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    padding: 15px;
     margin: 15px;
     background: black;
     color: white;

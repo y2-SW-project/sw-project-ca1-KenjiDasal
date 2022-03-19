@@ -28,8 +28,12 @@
             </div>
         </div>
 
+        <div class="d-flex justify-content-center">
         <div class="boxes text-center"> DUMMY</div>
-<div class="boxes  text-center"> DUMMY</div>
+        <div class="boxes  text-center"> DUMMY</div>
+        <div class="boxes text-center"> DUMMY</div>
+        <div class="boxes  text-center"> DUMMY</div>
+</div>
     </div>
 </div>
 

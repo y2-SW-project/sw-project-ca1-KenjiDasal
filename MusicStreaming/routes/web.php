@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\MusicController as UserMusicController;
 use App\Http\Controllers\Admin\MusicController as AdminMusicController;
+use App\Models\Song;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,19 @@ Route::get('/admin/musics/{id}', [AdminMusicController::class, 'show'])->name('a
 // Route::music('/admin/musics/store', [AdminMusicController::class, 'store'])->name('admin.musics.store');
 // Route::get('/admin/musics/{id}/edit', [AdminMusicController::class, 'edit'])->name('admin.musics.edit');
 // Route::put('admin/musics/{id}', [AdminMusicController::class, 'update'])->name('admin.musics.update');
-// Route::delete('admin/musics/{id}', [AdminMusicController::class, 'destroy'])->name('admin.musics.destroy');
+// Route::delete('admin/musics/{id}', [AdminMusicController::class, 'destroy'])->name('admin.musics.destroy')
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
