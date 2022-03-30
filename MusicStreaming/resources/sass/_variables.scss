@@ -9,7 +9,7 @@
 }
 
 body {
-    --bs-body-bg: black;
+    --bs-body-bg: rgb(54, 0, 50);
 }
 
 .main_content {
@@ -20,6 +20,11 @@ body {
     max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.sidebar {
+    background: rgb(246, 51, 255);
+    background: linear-gradient(0deg, rgba(246, 51, 255, 1) 0%, rgba(107, 36, 124, 1) 49%, rgba(38, 0, 56, 1) 100%);
 }
 
 .main_content .header {
@@ -56,4 +61,36 @@ body {
     margin: 15px;
     background: black;
     color: white;
+}
+
+.sidebar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px;
+    /* Same as the width of the sidenav */
+    font-size: 20px;
+    /* Increased text to enable scrolling */
+    padding: 0px 10px;
 }

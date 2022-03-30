@@ -6,12 +6,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Posts
-                    <a href="{{ route('admin.posts.create') }}" class="btn btn-primary float-right">Add</a>
+                    musics
+                    <a href="{{ route('admin.musics.create') }}" class="btn btn-primary float-right">Add</a>
                 </div>
                 <div class="card-body">
-                    @if (count($posts)=== 0)
-                        <p>There are no post.</p>
+                    @if (count($musics)=== 0)
+                        <p>There are no music.</p>
                     @else
                     <table id="table-posts" class="table table-hover">
                         <thead>
@@ -22,18 +22,18 @@
                             <th>Description</th>
                         </thead>
                         <tbody>
-                            @foreach ($posts as $post)
-                        <tr data-id="$post->id">
-                            <td>{{ $post->id }}</td>
-                            <td>{{ $post->artist}}</td>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->likes}}</td>
-                            <td>{{ $post->description}}</td>
+                            @foreach ($musics as $music)
+                        <tr data-id="$music->id">
+                            <td>{{ $music->id }}</td>
+                            <td>{{ $music->artist}}</td>
+                            <td>{{ $music->title }}</td>
+                            <td>{{ $music->likes}}</td>
+                            <td>{{ $music->description}}</td>
 
                             <td>
-                                <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">View</a>
-                                <a href="{{route('admin.posts.edit', $post->id)}}">Edit</a>
-                                <form style="display: inline-block" method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
+                                <a href="{{route('admin.musics.show', $music->id)}}" class="btn btn-primary">View</a>
+                                <a href="{{route('admin.musics.edit', $music->id)}}">Edit</a>
+                                <form style="display: inline-block" method="POST" action="{{route('admin.musics.destroy', $music->id)}}">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button type="submit" class="form-control btn btn-danger">Delete</button>

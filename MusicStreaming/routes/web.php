@@ -47,22 +47,7 @@ Route::get('/user/musics/{id}', [UserMusicController::class, 'show'])->name('use
 Route::get('/admin/musics/', [AdminMusicController::class, 'index'])->name('admin.musics.index');
 Route::get('/admin/musics/create', [AdminMusicController::class, 'create'])->name('admin.musics.create');
 Route::get('/admin/musics/{id}', [AdminMusicController::class, 'show'])->name('admin.musics.show');
-// Route::music('/admin/musics/store', [AdminMusicController::class, 'store'])->name('admin.musics.store');
-// Route::get('/admin/musics/{id}/edit', [AdminMusicController::class, 'edit'])->name('admin.musics.edit');
-// Route::put('admin/musics/{id}', [AdminMusicController::class, 'update'])->name('admin.musics.update');
-// Route::delete('admin/musics/{id}', [AdminMusicController::class, 'destroy'])->name('admin.musics.destroy')
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/admin/musics/store', [AdminMusicController::class, 'store'])->name('admin.musics.store');
+Route::get('/admin/musics/{id}/edit', [AdminMusicController::class, 'edit'])->name('admin.musics.edit');
+Route::put('admin/musics/{id}', [AdminMusicController::class, 'update'])->name('admin.musics.update');
+Route::delete('admin/musics/{id}', [AdminMusicController::class, 'destroy'])->name('admin.musics.destroy');
