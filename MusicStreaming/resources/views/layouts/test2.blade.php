@@ -44,12 +44,12 @@ sign up --}}
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
               <a href="{{ url('/') }}" class="nav-link text-white" aria-current="page">
-              
+
                 Home
               </a>
             </li>
             <li>
-              <a href="{{ url('/Playlist') }}" class="nav-link text-white">
+              <a href="{{ url('admin/musics/playlist') }}" class="nav-link text-white">
 
                 Playlist
               </a>

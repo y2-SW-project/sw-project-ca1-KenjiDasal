@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\MusicController as UserMusicController;
 use App\Http\Controllers\Admin\MusicController as AdminMusicController;
+use App\Http\Controllers\User\PlaylistController as UserPlaylistController;
+use App\Http\Controllers\Admin\PlaylistController as AdminPlaylistController;
 use App\Models\Song;
 
 /*
@@ -40,9 +42,14 @@ Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'inde
 
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/user/playlist', [PageController::class, 'playlist'])->name('user/musics/playlist');
 
 Route::get('/user/musics/', [UserMusicController::class, 'index'])->name('user.musics.index');
 Route::get('/user/musics/{id}', [UserMusicController::class, 'show'])->name('user.musics.show');
+
+Route::get('/user/musics/playlist', [UserPlaylistController::class, 'index'])->name('user.musics.playlist');
+
+Route::get('/admin/musics/playlist', [AdminPlaylistController::class, 'index'])->name('admin.musics.playlist');
 
 Route::get('/admin/musics/', [AdminMusicController::class, 'index'])->name('admin.musics.index');
 Route::get('/admin/musics/create', [AdminMusicController::class, 'create'])->name('admin.musics.create');
