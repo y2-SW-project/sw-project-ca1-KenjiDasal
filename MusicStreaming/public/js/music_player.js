@@ -17,8 +17,8 @@ const play_pause_btn2 = document.querySelector('#play_pause_btn2');
 const forward_btn2 = document.querySelector('#forward_btn2');
 const backward_btn2 = document.querySelector('#backward_btn2');
 
-const slider1 = document.querySelector('#slider1');
-const slider2 = document.querySelector('#slider2');
+let slider1 = document.querySelector('#slider1');
+let slider2 = document.querySelector('#slider2');
 
 
 /*songs duration*/
@@ -86,13 +86,14 @@ function update_second() {
 
     // update slider position
     if (!isNaN(song[index_no].duration)) {
-        slider1.value = song[index_no].currentTime * (100 / song[index_no].duration);
-        slider2.value = song[index_no].currentTime * (100 / song[index_no].duration);
+
         position = song[index_no].currentTime * (100 / song[index_no].duration);
 
+        slider1.value = position
+        slider2.value = position
 
-
-        console.log(slider1.value, slider2.value, position, song[index_no].duration)
+        console.log(slider1.value, slider2.value, position, song[index_no].duration, "current time",
+            song[index_no].currentTime)
     }
 
     let durationMinutes = Math.floor(song[index_no].duration / 60);
@@ -178,14 +179,17 @@ play_pause_btn2.addEventListener('click', function() {
 function change_duration1() {
     let slider1_position = song[index_no].duration * (slider1.value / 100);
     song[index_no].currentTime = slider1_position;
+    song[index_no].currentTime * (100 / song[index_no].duration);
+
 }
 
 
 
 
 function change_duration2() {
-    let slider2_position = song[index_no].duration * (slider2.value / 100);
+    slider2_position = song[index_no].duration * (slider2.value / 100);
     song[index_no].currentTime = slider2_position;
+
 }
 
 

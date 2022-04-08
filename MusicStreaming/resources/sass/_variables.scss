@@ -301,7 +301,7 @@ body {
 
 .controlls_small {
     width: 75%;
-    margin-top: 2.5em;
+    margin-top: 0.5em;
 }
 
 .progress_part_small {
@@ -330,7 +330,7 @@ body {
 
 .controlls_btns_small {
     width: 25%;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -450,8 +450,8 @@ input[type=range]::-webkit-slider-thumb {
 
 .popup_music_player .song_img {
     margin-top: 2em;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
@@ -487,7 +487,7 @@ input[type=range]::-webkit-slider-thumb {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 97%;
     padding: 15px 20px 35px 20px;
     display: flex;
     align-items: center;
@@ -514,11 +514,11 @@ input[type=range]::-webkit-slider-thumb {
 .s_player_img {
     position: relative;
     height: 75px;
-    width: 75px;
+    width: 100px;
     overflow: hidden;
     border-radius: 10px;
-    margin-right: 2em;
-    margin-bottom: 25px;
+    margin-right: 1em;
+    margin-bottom: 80px;
     box-shadow: 0.1px 4px 8px 5px rgba(0, 0, 0, 0.3);
 }
 
