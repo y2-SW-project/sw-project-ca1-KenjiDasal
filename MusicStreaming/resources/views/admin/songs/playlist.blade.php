@@ -1,3 +1,6 @@
+@extends('layouts.admin_nav')
+
+@section('content')
 <div class="main">
     <!-- top section -->
     <div class="top_section">
@@ -9,8 +12,42 @@
 
 
         <!-- list of song will add here from 'song_list.js' file -->
+        <table id="table-posts" class="table table-hover">
+            <tbody>
+                @foreach ($songs as $song)
+            <tr data-id="$song->id">
+                <div class="song">
+                    <div class="img">
+                        <img src="{{ asset('images/' . $song->id) }}.jpg" alt="">
+                    </div>
+                    <div class="more">
+                        <audio src="{{ asset('music/' . $song->id) }}.mp3"></audio>
+                    <div class="song_info">
+                       <p id="title"></p>
+                       <p></p>
+                    </div>
+                    <button id="play_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+
+
+
+                <td>
+                    <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
+                    <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
+                    <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="form-control btn btn-danger">Delete</button>
+                    </form>
+                </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
         <!-- small music player -->
+
 
         <div class="small_music_player">
             <div class="d-flex">
@@ -46,7 +83,7 @@
 
             <div class="controlls_small">
                 <div class="progress_part_small">
-                    <input type="range" min="0" max="100" value="0" id="slider2" onchange="change_duration2()">
+                    <input type="range" min="0" max="100" value="1" id="slider2" onchange="change_duration2()">
                     <div class="durations">
                         <p id="current_duration2">0:00</p>
                         <p id="total_duration2">0:00</p>
@@ -82,7 +119,7 @@
 
             <div class="controlls">
                 <div class="progress_part">
-                    <input type="range" min="0" max="100" value="0" id="slider1" onchange="return change_duration1('test')">
+                    <input type="range" min="0" max="100" value="1" id="slider1" onchange="return change_duration1('test')">
                     <div class="durations">
                         <p id="current_duration1">0:00</p>
                         <p id="total_duration1">0:00</p>
@@ -103,32 +140,4 @@
 
     </div>
 </div>
-
-
-<h1>Music Player</h1>
-
-<div class="music-container" id="music-container">
-    <div class="music-info">
-        <h4 id="title"></h4>
-        <div class="progress-container" id="progress-container">
-            <div class="progress" id="progress"></div>
-        </div>
-    </div>
-
-    <audio src="http://localhost:8000/music/1.mp3" id="audio"></audio>
-
-    <div class="img-container">
-        <img src="http://localhost:8000/images/1.jpg" alt="music-cover" id="cover" />
-    </div>
-    <div class="navigation">
-        <button id="prev" class="action-btn">
-      <i class="fas fa-backward"></i>
-    </button>
-        <button id="play" class="action-btn action-btn-big">
-      <i class="fas fa-play"></i>
-    </button>
-        <button id="next" class="action-btn">
-      <i class="fas fa-forward"></i>
-    </button>
-    </div>
-</div>
+@endsection

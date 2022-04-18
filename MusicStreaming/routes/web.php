@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\User\MusicController as UserMusicController;
-use App\Http\Controllers\Admin\MusicController as AdminMusicController;
+use App\Http\Controllers\User\songController as UsersongController;
+use App\Http\Controllers\Admin\songController as AdminsongController;
 use App\Http\Controllers\User\PlaylistController as UserPlaylistController;
 use App\Http\Controllers\Admin\PlaylistController as AdminPlaylistController;
 use App\Models\Song;
@@ -42,19 +42,19 @@ Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'inde
 
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/user/playlist', [PageController::class, 'playlist'])->name('user/musics/playlist');
+Route::get('/user/playlist', [PageController::class, 'playlist'])->name('user/songs/playlist');
 
-Route::get('/user/musics/', [UserMusicController::class, 'index'])->name('user.musics.index');
-Route::get('/user/musics/{id}', [UserMusicController::class, 'show'])->name('user.musics.show');
+Route::get('/user/songs/', [UsersongController::class, 'index'])->name('user.songs.index');
+Route::get('/user/songs/{id}', [UsersongController::class, 'show'])->name('user.songs.show');
 
-Route::get('/user/musics/playlist', [UserPlaylistController::class, 'index'])->name('user.musics.playlist');
+Route::get('/user/songs/playlist', [UserPlaylistController::class, 'index'])->name('user.songs.playlist');
 
-Route::get('/admin/musics/playlist', [AdminPlaylistController::class, 'index'])->name('admin.musics.playlist');
+Route::get('/admin/songs/playlist', [AdminPlaylistController::class, 'index'])->name('admin.songs.playlist');
 
-Route::get('/admin/musics/', [AdminMusicController::class, 'index'])->name('admin.musics.index');
-Route::get('/admin/musics/create', [AdminMusicController::class, 'create'])->name('admin.musics.create');
-Route::get('/admin/musics/{id}', [AdminMusicController::class, 'show'])->name('admin.musics.show');
-Route::post('/admin/musics/store', [AdminMusicController::class, 'store'])->name('admin.musics.store');
-Route::get('/admin/musics/{id}/edit', [AdminMusicController::class, 'edit'])->name('admin.musics.edit');
-Route::put('admin/musics/{id}', [AdminMusicController::class, 'update'])->name('admin.musics.update');
-Route::delete('admin/musics/{id}', [AdminMusicController::class, 'destroy'])->name('admin.musics.destroy');
+Route::get('/admin/songs/', [AdminsongController::class, 'index'])->name('admin.songs.index');
+Route::get('/admin/songs/create', [AdminsongController::class, 'create'])->name('admin.songs.create');
+Route::get('/admin/songs/{id}', [AdminsongController::class, 'show'])->name('admin.songs.show');
+Route::post('/admin/songs/store', [AdminsongController::class, 'store'])->name('admin.songs.store');
+Route::get('/admin/songs/{id}/edit', [AdminsongController::class, 'edit'])->name('admin.songs.edit');
+Route::put('admin/songs/{id}', [AdminsongController::class, 'update'])->name('admin.songs.update');
+Route::delete('admin/songs/{id}', [AdminsongController::class, 'destroy'])->name('admin.songs.destroy');

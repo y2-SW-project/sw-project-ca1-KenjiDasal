@@ -14,6 +14,6 @@ class SongTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+//
     }
 }

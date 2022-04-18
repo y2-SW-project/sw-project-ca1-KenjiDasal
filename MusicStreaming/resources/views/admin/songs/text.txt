@@ -50,3 +50,56 @@
     </div>
 </div>
 @endsection
+
+
+@extends('layouts.test2')
+
+@section('content')
+<div class="song-list">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    songs
+                    <a href="{{ route('admin.songs.create') }}" class="btn btn-primary float-right">Add</a>
+                </div>
+                <div class="card-body">
+                    @if (count($songs)=== 0)
+                        <p>There are no song.</p>
+                    @else
+                    <table id="table-posts" class="table table-hover">
+                        <thead>
+                            <th>ID</th>
+                            <th>Artist</th>
+                            <th>Likes</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </thead>
+                        <tbody>
+                            @foreach ($songs as $song)
+                        <tr data-id="$song->id">
+                            <td>{{ $song->id }}</td>
+                            <td>{{ $song->title}}</td>
+                            <audio src="{{ asset('music/' . $song->id) }}.mp3"></audio>
+
+                            <td>
+                                <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
+                                <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
+                                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="form-control btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

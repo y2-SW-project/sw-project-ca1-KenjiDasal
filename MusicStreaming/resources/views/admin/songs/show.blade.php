@@ -6,44 +6,44 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    music By: {{$music->artist}}
+                    song By: {{$song->artist}}
                 </div>
                 <div class="card-body">
-                    <table id="table-musics" class="table table-hover">
+                    <table id="table-songs" class="table table-hover">
                         <tbody>
                             <tr>
-                                <td rowspan="8"><img src="{{ asset('images/' . $music->img) }}" width="150"/></td>
+                                <td rowspan="8"><img src="{{ asset('images/' . $song->img) }}" width="150"/></td>
                             </tr>
 
 
                             <tr>
                                 <td>Title</td>
-                                <td>{{$music->title}}</td>
+                                <td>{{$song->title}}</td>
                             </tr>
 
                             <tr>
                                 <td>Description</td>
-                                <td>{{$music->description}}</td>
+                                <td>{{$song->description}}</td>
                             </tr>
 
                             <tr>
                                 <td>Likes</td>
-                                <td>{{$music->likes}}</td>
+                                <td>{{$song->likes}}</td>
                             </tr>
 
                             <tr>
                                 <td>Created At</td>
-                                <td>{{$music->created_at}}</td>
+                                <td>{{$song->created_at}}</td>
                             </tr>
 
                             <tr>
                                 <td>Update At</td>
-                                <td>{{$music->updated_at}}</td>
+                                <td>{{$song->updated_at}}</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <a href="{{route('admin.musics.index')}}" class="btn btn-default">Back</a>
+                    <a href="{{route('admin.songs.index')}}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\Admin\MusicController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Music;
+use App\Models\Song;
 
-class MusicControllerController extends Controller
+class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,13 @@ class MusicControllerController extends Controller
      */
     public function index()
     {
-        //
+        $songs = Song::all();
+        return view ('user.songs.index', [
+
+
+            'songs' => $songs
+
+    ]);
     }
 
     /**
@@ -43,21 +49,27 @@ class MusicControllerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin\MusicController  $musicController
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(MusicController $musicController)
+    public function show($id)
     {
-        //
+        $song = song::findOrFail($id);
+
+        return view ('user.songs.show', [
+
+
+            'song' => $song
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin\MusicController  $musicController
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(MusicController $musicController)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +78,10 @@ class MusicControllerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin\MusicController  $musicController
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MusicController $musicController)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +89,10 @@ class MusicControllerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin\MusicController  $musicController
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MusicController $musicController)
+    public function destroy($id)
     {
         //
     }

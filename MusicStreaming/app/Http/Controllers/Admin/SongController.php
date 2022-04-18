@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Music;
+use App\Models\Song;
 
-class MusicController extends Controller
+class SongController extends Controller
 {
 
     /**
@@ -17,9 +17,9 @@ class MusicController extends Controller
      */
     public function index()
     {
-        $musics = Music::all();
-        return view('admin.musics.index', [
-            'musics' => $musics
+        $songs = Song::all();
+        return view('admin.songs.index', [
+            'songs' => $songs
         ]);
     }
 
@@ -30,7 +30,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        return view('admin.musics.create');
+        return view('admin.songs.create');
     }
 
     /**
@@ -43,23 +43,18 @@ class MusicController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' =>'required|max:500',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
 
 
-        $music = new Music();
-        $music->artist = $request->input('artist');
-        $music->title = $request->input('title');
-        $music->likes = $request->input('likes');
-        $music->description = $request->input('description');
-        $music->img = $request->input('img');
-        $music->created_at = $request->input('created_at');
-        $music->updated_at = $request->input('updated_at');
-        $music->save();
+        $song = new Song();
+        $song->title = $request->input('title');
+        $song->created_at = $request->input('created_at');
+        $song->updated_at = $request->input('updated_at');
+        $song->save();
 
-        return redirect()->route('admin.musics.index');
+        return redirect()->route('admin.songs.index');
     }
 
     /**
@@ -70,12 +65,12 @@ class MusicController extends Controller
      */
     public function show($id)
     {
-        $music = Music::findOrFail($id);
+        $song = Song::findOrFail($id);
 
-        return view ('admin.musics.show', [
+        return view ('admin.songs.show', [
 
 
-            'music' => $music
+            'song' => $song
         ]);
     }
     /**
@@ -86,9 +81,9 @@ class MusicController extends Controller
      */
     public function edit($id)
     {
-        $music = Music::findOrFail($id);
-        return view ('admin.musics.edit', [
-            'music' => $music
+        $song = Song::findOrFail($id);
+        return view ('admin.songs.edit', [
+            'song' => $song
         ]);
     }
 
@@ -101,24 +96,20 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $music = Music::findOrFail($id);
+        $song = Song::findOrFail($id);
         $request->validate([
             'title' => 'required',
-            'description' =>'required|max:500',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
 
-        $music->artist = $request->input('artist');
-        $music->title = $request->input('title');
-        $music->likes = $request->input('likes');
-        $music->description = $request->input('description');
-        $music->img = $request->input('img');
-        $music->created_at = $request->input('created_at');
-        $music->updated_at = $request->input('updated_at');
-        $music->save();
+        $song->artist = $request->input('artist');
+        $song->title = $request->input('title');
+        $song->created_at = $request->input('created_at');
+        $song->updated_at = $request->input('updated_at');
+        $song->save();
 
-        return redirect()->route('admin.musics.index');
+        return redirect()->route('admin.songs.index');
     }
 
     /**
@@ -129,11 +120,11 @@ class MusicController extends Controller
      */
     public function destroy($id)
     {
-        $music = Music::findOrFail($id);
-        $music->delete();
+        $song = Song::findOrFail($id);
+        $song->delete();
 
-        return redirect()->route('admin.musics.index');
+        return redirect()->route('admin.songs.index');
     }
 
-    
+
 }

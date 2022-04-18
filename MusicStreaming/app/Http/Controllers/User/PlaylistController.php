@@ -26,7 +26,7 @@ class PlaylistController extends Controller
 
     //     $user->authorizedRoles('admin');
 
-        return view('user.music.playlist');
+        return view('user.song.playlist');
     }
 
 }
