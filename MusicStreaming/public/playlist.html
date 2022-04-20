@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kordz</title>
+    <link rel="stylesheet" href="css\app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="test flex">
+        <div class="wrapper d-flex justify-content-center">
+            <div class="sidebar  testing-drop">
+                <div>
+                    <a href="{{ url('/') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4 text-center">KORDZ</span>
+                    </a>
+                    <hr>
+
+                    <button class="test_btn"><a href="Admin/Playlist.html">Testing</a></button>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link text-white" aria-current="page">
+
+                    Home
+                  </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/Playlist') }}" class="nav-link text-white">
+
+                    Playlist
+                  </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/History') }}" class="nav-link text-white">
+
+                    History
+                  </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/Purchase') }}" class="nav-link text-white">
+
+                    Purchase
+                  </a>
+                        </li>
+
+                    </ul>
+                    <hr>
+                </div>
+                <div class="dropdown mt-auto">
+                    <ul class=" ms-auto">
+                        <!-- Authentication Links -->
+                        @guest @if (Route::has('login'))
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link text-white">{{ __('Login') }}</a>
+                        </li>
+                        @endif @if (Route::has('register'))
+                        <li>
+                            <a href="{{ route('register') }}" class="nav-link text-white">{{ __('Register') }}</a>
+                        </li>
+                        @endif @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main">
+            <!-- top section -->
+            <div class="top_section">
+                <h5><i class="fa fa-headphones" aria-hidden="true"></i>&nbsp;&nbsp;Index
+                </h5>
+
+            </div>
+
+            <div class="test_card">
+
+                <div class="cards">
+
+
+                    <!-- list of song will add here from 'song_list.js' file -->
+
+                    <!-- small music player -->
+
+
+
+                </div>
+            </div>
+
+            <div class="small_music_player">
+                <div class="d-flex">
+                    <div class="s_player_img">
+                        <div class="playing_img">
+                            <img src="images/1.jpg" alt="">
+                        </div>
+
+                        <!-- wave animation part -->
+                        <div class="wave_animation">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </div>
+                    </div>
+
+                    <div class="song_detail">
+                        <p id="song_name">Make Me Move</p>
+                        <p id="artist_name">NoCopyrightSounds [NCS]</p>
+                    </div>
+
+                </div>
+
+
+                <div class="controlls_btns_small">
+                    <button id="backward_btn2"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                    <button id="play_pause_btn2"><i class="fa fa-play" aria-hidden="true"></i></button>
+                    <button id="forward_btn2"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="controlls_small">
+                    <div class="progress_part_small">
+                        <input type="range" min="0" max="100" value="0" id="slider2" onchange="change_duration2()">
+                        <div class="durations">
+                            <p id="current_duration2">0:00</p>
+                            <p id="total_duration2">0:00</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="mb-5">
+                    <i class="fa fa-chevron-up" aria-hidden="true" id="up_player"></i>
+                </div>
+
+            </div>
+
+
+            <!--  popup music player part -->
+            <div class="popup_music_player">
+                <div class="top">
+                    <p>Now Playing</p>
+                    <i class="fa fa-chevron-down" aria-hidden="true" id="down_player"></i>
+                </div>
+
+                <div class="song_img">
+                    <img src="images/1.jpg" alt="">
+                </div>
+
+                <div class="song_description">
+                    <h3 id="current_track_name"></h3>
+                    <p id="current_singer_name"></p>
+                </div>
+
+                <div class="controlls">
+                    <div class="progress_part">
+                        <input type="range" min="0" max="100" value="0" id="slider1" onchange="change_duration1()">
+                        <div class="durations">
+                            <p id="current_duration1">0:00</p>
+                            <p id="total_duration1">0:00</p>
+                        </div>
+
+                    </div>
+
+                    <!-- controlls btn's -->
+                    <div class="controlls_btns">
+                        <button id="backward_btn1"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                        <button id="play_pause_btn1"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button id="forward_btn1"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- song list file -->
+    <script src="public/js/Cards.js"></script>
+    <!-- javascript -->
+    <script src="public/js/main2.js"></script>
+
+
+
+</body>
+
+</html>

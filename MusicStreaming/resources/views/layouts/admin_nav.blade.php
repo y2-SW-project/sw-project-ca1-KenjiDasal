@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/demo_db_connection.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="icon" href="resources\images\top.png>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -42,31 +42,35 @@ sign up --}}
     <div class="wrapper d-flex justify-content-center">
         <div class="sidebar  testing-drop">
             <div>
-                <a href="{{ url('/') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="{{ route('admin.home') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-4 text-center">KORDZ</span>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link text-white" aria-current="page">
+                        <a href="{{ route('admin.home') }}" class="nav-link text-white" aria-current="page">
 
                 Home
               </a>
                     </li>
                     <li>
-                        <a href="{{ url('/Playlist') }}" class="nav-link text-white">
-
-                Playlist
-              </a>
-                    </li>
+                        @guest @if (Route::has('login'))
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
+                        </li>
+                        @endif @else
+                        <li>
+                            <a href="{{  route('admin.playlists.playlist') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
+                        </li>
                     <li>
+                        @endguest
                         <a href="{{ url('/History') }}" class="nav-link text-white">
 
                 History
               </a>
                     </li>
                     <li>
-                        <a href="{{ url('admin/musics') }}" class="nav-link text-white">
+                        <a href="{{ url('admin/admin.playlists') }}" class="nav-link text-white">
 
                 Songs
               </a>
@@ -114,13 +118,9 @@ sign up --}}
     </main>
 
 </div>
-
-
-<script type="text/javascript" src="{{ URL::asset('js/music_player.js') }}"></script>
-
-
-
 </div>
 </div>
+
+@yield('music_player')
 </body>
 </html>

@@ -43,24 +43,21 @@ let Playlist = [{
 let tracks = document.querySelector('.tracks');
 
 //creating a list or generating Html
-for (let i = 0; i < Playlist.length; i++) {
 
-    let Html = ` <div class="song">
+
+let Html = ` <div class="song">
       <div class="img">
-      <img src="http://localhost:8000/${Playlist[i].img}" alt="">
+      <img src="http://localhost:8000/${Playlist[1].img}" alt="">
       </div>
       <div class="more">
-      <audio src="http://localhost:8000/${Playlist[i].path}" id="music"></audio>
+      <audio src="http://localhost:8000/${Playlist[1].path}" id="music"></audio>
       <div class="song_info">
-         <p id="title">${Playlist[i].name}</p>
-         <p>${Playlist[i].singer}</p>
+         <p id="title">${Playlist[1].name}</p>
+         <p>${Playlist[1].singer}</p>
       </div>
       <button id="play_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
       </div>
     </div>`;
-
-    tracks.insertAdjacentHTML("beforeend", Html);
-};
 
 
 

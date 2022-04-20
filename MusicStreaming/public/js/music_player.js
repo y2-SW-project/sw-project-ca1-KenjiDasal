@@ -49,7 +49,7 @@ console.log(index_no);
 
 btn.forEach((btn, index) => {
     btn.addEventListener('click', function() {
-
+        console.log("playing")
         s_m_player.style.transform = 'translateY(0px)';
 
         if (index != index_no) {

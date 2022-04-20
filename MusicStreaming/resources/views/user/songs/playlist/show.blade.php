@@ -1,4 +1,4 @@
-@extends('layouts.admin_nav')
+@extends('layouts.user_nav')
 
 @section('content')
 <div class="main">
@@ -8,7 +8,7 @@
                     <table id="table-songs" class="table table-hover">
                         <tbody>
                             <tr>
-                                <td rowspan="8"><img src="{{ asset('images/' . $song->id) }}.jpg" width="150"/></td>
+                                <td rowspan="8"><img src="{{ asset('images/' . $song->img) }}" width="150"/></td>
                             </tr>
 
 
@@ -18,8 +18,13 @@
                             </tr>
 
                             <tr>
-                                <td>Artist</td>
-                                <td>{{$song->artist}}</td>
+                                <td>Description</td>
+                                <td>{{$song->description}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Likes</td>
+                                <td>{{$song->likes}}</td>
                             </tr>
 
                             <tr>
@@ -34,7 +39,7 @@
                         </tbody>
                     </table>
 
-                    <a href="{{route('admin.songs.index')}}" class="btn btn-default">Back</a>
+                    <a href="{{route('user.songs.index')}}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

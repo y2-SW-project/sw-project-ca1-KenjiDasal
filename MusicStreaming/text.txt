@@ -52,6 +52,16 @@
 @endsection
 
 
+<form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="form-control btn btn-danger">Delete</button>
+                        </form>
+                        <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
+                        <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
+
+
+
 @extends('layouts.test2')
 
 @section('content')

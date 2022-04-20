@@ -1,4 +1,4 @@
-@extends('layouts.admin_nav')
+@extends('layouts.user_nav')
 
 @section ('content')
   <div class="container">
@@ -20,7 +20,7 @@
                 </ul>
               </div>
             @endif
-            <form method="POST" action="{{ route('admin.musics.store')  }}">
+            <form method="POST" action="{{ route('user.musics.store')  }}">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <div class="form-group">
                 <label for="artist">Artist</label>
@@ -53,7 +53,7 @@
                 <input type="file" class="form-control" id="img" name="img" />
               </div>
 
-              <a href="{{ route('admin.musics.index') }}" class="btn btn-outline">Cancel</a>
+              <a href="{{ route('user.musics.index') }}" class="btn btn-outline">Cancel</a>
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
           </div>

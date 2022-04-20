@@ -23,23 +23,25 @@
                     <div class="more">
                         <audio src="{{ asset('music/' . $song->id) }}.mp3"></audio>
                     <div class="song_info">
-                       <p id="title"></p>
+                       <p id="title">{{ $song->title }}</p>
                        <p></p>
                     </div>
-                    <div class="flex">
-                        <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button type="submit" class="form-control btn btn-danger">Delete</button>
-                        </form>
-                    <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
-                    <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
-
-                    <button id="play_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                </div>
+                    <div>
+                        <button id="play_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     </div>
-                  </div>
 
+
+
+                    </div>
+
+                </div>
+                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="form-control btn btn-danger">Delete</button>
+                </form>
+                <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
+                <a href="{{route('admin.songs.edit', $song->id)}}" class="btn btn-primary mx-4">Edit</a>
 
 
 
@@ -55,7 +57,7 @@
             <div class="d-flex">
                 <div class="s_player_img">
                     <div class="playing_img">
-                        <img src="http://localhost:8000/images/1.jpg" alt="">
+                        <img src="{{ asset('images/'.$song->id) }}.jpg" alt="">
                         {{-- http://localhost:8000/images/1.jpg --}}
                     </div>
 
@@ -111,7 +113,7 @@
             </div>
 
             <div class="song_img">
-                <img src="http://localhost:8000/images/1.jpg" alt="">
+                <img src="{{ asset('images/' . $song->id) }}.jpg" alt="">
             </div>
 
             <div class="song_description">
@@ -144,4 +146,5 @@
 </div>
 
 <script type="text/javascript" src="{{ URL::asset('js/music_player.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/playlist.js') }}"></script>
 @endsection

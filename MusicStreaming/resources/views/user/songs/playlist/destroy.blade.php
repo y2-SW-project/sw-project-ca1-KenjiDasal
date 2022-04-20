@@ -1,4 +1,4 @@
-@extends('layouts.admin_nav')
+@extends('layouts.user_nav')
 
 @section('content')
 <div class="container">
@@ -30,9 +30,9 @@
                             <td>{{ $song->description}}</td>
 
                             <td>
-                                <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">Views</a>
-                                <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
-                                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                                <a href="{{route('user.songs.show', $song->id)}}" class="btn btn-primary">Views</a>
+                                <a href="{{route('user.songs.edit', $song->id)}}">Edit</a>
+                                <form style="display: inline-block" method="POST" action="{{route('user.songs.destroy', $song->id)}}">
                                     <input type="hidden" name="_method" value="DELETE">
                                     input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button type="submit" class="form-control btn btn-danger">Delete</button>

@@ -1,4 +1,4 @@
-@extends('layouts.admin_nav')
+@extends('layouts.user_nav')
 
 @section ('content')
   <div class="main">
@@ -20,7 +20,7 @@
                 </ul>
               </div>
             @endif
-            <form method="POST" action="{{ route('admin.songs.update', $song->id)}}">
+            <form method="POST" action="{{ route('user.songs.update', $song->id)}}">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <input type="hidden" name="_method" value="PUT">
 
@@ -50,7 +50,7 @@
                 <input type="date" class="form-control" id="updated_at" name="updated_at" value="{{ old('updated_at', $song->updated_at) }}" />
               </div>
 
-              <a href="{{ route('admin.songs.index') }}" class="btn btn-outline">Cancel</a>
+              <a href="{{ route('user.songs.index') }}" class="btn btn-outline">Cancel</a>
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
           </div>

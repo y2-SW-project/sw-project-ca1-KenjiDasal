@@ -15,10 +15,10 @@ class PlaylistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function playlist()
+    public function index()
     {
         $songs = Song::all();
-        return view('admin.songs.playlist', [
+        return view('admin.playlists.playlist', [
             'songs' => $songs
         ]);
     }
@@ -30,7 +30,7 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        return view('admin.songs.create');
+        return view('admin.playlists.create');
     }
 
     /**
@@ -50,11 +50,14 @@ class PlaylistController extends Controller
 
         $song = new Song();
         $song->title = $request->input('title');
+        $song->title = $request->input('artist');
+        $song->title = $request->input('path');
+        $song->title = $request->input('images');
         $song->created_at = $request->input('created_at');
         $song->updated_at = $request->input('updated_at');
         $song->save();
 
-        return redirect()->route('admin.songs.playlist');
+        return redirect()->route('admin.playlists.playlist');
     }
 
     /**
@@ -67,7 +70,7 @@ class PlaylistController extends Controller
     {
         $song = Song::findOrFail($id);
 
-        return view ('admin.songs.show', [
+        return view ('admin.playlists.show', [
 
 
             'song' => $song
@@ -82,7 +85,7 @@ class PlaylistController extends Controller
     public function edit($id)
     {
         $song = Song::findOrFail($id);
-        return view ('admin.songs.edit', [
+        return view ('admin.playlists.edit', [
             'song' => $song
         ]);
     }
@@ -99,17 +102,20 @@ class PlaylistController extends Controller
         $song = Song::findOrFail($id);
         $request->validate([
             'title' => 'required',
+            'path'=>'required',
+            'artist'=>'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
 
         $song->artist = $request->input('artist');
         $song->title = $request->input('title');
+        $song->title = $request->input('artist');
         $song->created_at = $request->input('created_at');
         $song->updated_at = $request->input('updated_at');
         $song->save();
 
-        return redirect()->route('admin.songs.playlist');
+        return redirect()->route('admin.playlists.playlist');
     }
 
     /**
@@ -123,7 +129,7 @@ class PlaylistController extends Controller
         $song = Song::findOrFail($id);
         $song->delete();
 
-        return redirect()->route('admin.songs.playlist');
+        return redirect()->route('admin.playlists.playlist');
     }
 
 

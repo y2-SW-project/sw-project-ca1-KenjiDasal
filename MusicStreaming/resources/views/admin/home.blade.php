@@ -1,4 +1,4 @@
-@extends('layouts.test2')
+@extends('layouts.admin_nav')
 
 @section('content')
 <div class="container">
@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+
                     {{ __('You are logged in as Admin') }}
                 </div>
             </div>
