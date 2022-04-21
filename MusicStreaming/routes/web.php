@@ -52,6 +52,7 @@ Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'inde
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
+// USER SONGS
 Route::get('/user/songs/', [UserPlaylistController::class, 'index'])->name('user.songs.index');
 Route::get('/user/songs/create', [UserPlaylistController::class, 'create'])->name('user.songs.create');
 Route::get('/user/songs/{id}', [UserPlaylistController::class, 'show'])->name('user.songs.show');
@@ -60,10 +61,25 @@ Route::get('/user/songs/{id}/edit', [UserPlaylistController::class, 'edit'])->na
 Route::put('user/songs/{id}', [UserPlaylistController::class, 'update'])->name('user.songs.update');
 Route::delete('user/songs/{id}', [UserPlaylistController::class, 'destroy'])->name('user.songs.destroy');
 
-Route::get('/user/songs/playlist', [UserPlaylistController::class, 'index'])->name('user.songs.playlist');
+// USER PLAYLIST
+Route::get('/user/songs/playlist', [UserPlaylistController::class, 'index'])->name('user.playlist.playlist');
+Route::get('/user/songs/playlist/create', [UserPlaylistController::class, 'create'])->name('user.playlist.create');
+Route::get('/user/songs/playlist/{id}', [UserPlaylistController::class, 'show'])->name('user.playlist.show');
+Route::post('/user/songs/playlist/store', [UserPlaylistController::class, 'store'])->name('user.playlist.store');
+Route::get('/user/songs/playlist/{id}/edit', [UserPlaylistController::class, 'edit'])->name('user.playlist.edit');
+Route::put('user/songs/playlist/{id}', [UserPlaylistController::class, 'update'])->name('user.playlist.update');
+Route::delete('user/songs/playlist/{id}', [UserPlaylistController::class, 'destroy'])->name('user.playlist.destroy');
 
+// ADMIN PLAYLIST
 Route::get('/admin/songs/playlist', [AdminPlaylistController::class, 'index'])->name('admin.playlists.playlist');
+Route::get('/admin/songs/playlists/create', [AdminPlaylistController::class, 'create'])->name('admin.playlists.create');
+Route::get('/admin/songs/playlist/{id}', [AdminPlaylistController::class, 'show'])->name('admin.playlists.details');
+Route::post('/admin/songs/store/playlist', [AdminPlaylistController::class, 'store'])->name('admin.playlists.store');
+Route::get('/admin/songs/playlist/{id}/edit', [AdminPlaylistController::class, 'edit'])->name('admin.playlists.edit');
+Route::put('admin/songs/playlist/{id}', [AdminPlaylistController::class, 'update'])->name('admin.playlists.update');
+Route::delete('admin/songs/playlist/{id}', [AdminPlaylistController::class, 'destroy'])->name('admin.playlists.destroy');
 
+// ADMIN SONGS
 Route::get('/admin/songs/', [AdminsongController::class, 'index'])->name('admin.songs.index');
 Route::get('/admin/songs/create', [AdminsongController::class, 'create'])->name('admin.songs.create');
 Route::get('/admin/songs/{id}', [AdminsongController::class, 'show'])->name('admin.songs.show');

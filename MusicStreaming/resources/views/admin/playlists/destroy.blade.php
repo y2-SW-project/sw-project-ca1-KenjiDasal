@@ -9,7 +9,7 @@
                     songs
                 </div>
                 <div class="card-body">
-                    @if (count($songs)=== 0)
+                    @if (count($playlists)=== 0)
                         <p>There are no song.</p>
                     @else
                     <table id="table-songs" class="table table-hover">
@@ -21,18 +21,18 @@
                             <th>Description</th>
                         </thead>
                         <tbody>
-                            @foreach ($songs as $song)
-                        <tr data-id="$song->id">
-                            <td>{{ $song->id }}</td>
-                            <td>{{ $song->artist}}</td>
-                            <td>{{ $song->title }}</td>
-                            <td>{{ $song->likes}}</td>
-                            <td>{{ $song->description}}</td>
+                            @foreach ($playlists as $playlist)
+                        <tr data-id="$playlist->id">
+                            <td>{{ $playlist->id }}</td>
+                            <td>{{ $playlist->artist}}</td>
+                            <td>{{ $playlist->title }}</td>
+                            <td>{{ $playlist->likes}}</td>
+                            <td>{{ $playlist->description}}</td>
 
                             <td>
-                                <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">Views</a>
-                                <a href="{{route('admin.songs.edit', $song->id)}}">Edit</a>
-                                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                                <a href="{{route('admin.songs.show', $playlist->id)}}" class="btn btn-primary">Views</a>
+                                <a href="{{route('admin.songs.edit', $playlist->id)}}">Edit</a>
+                                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $playlist->id)}}">
                                     <input type="hidden" name="_method" value="DELETE">
                                     input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button type="submit" class="form-control btn btn-danger">Delete</button>

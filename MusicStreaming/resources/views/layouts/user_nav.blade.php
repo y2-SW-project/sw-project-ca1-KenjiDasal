@@ -39,7 +39,7 @@ Kenji
 login
 sign up --}}
 <div class=" flex">
-    <div class="wrapper d-flex justify-content-center">
+    <div class="col-md-2 wrapper d-flex justify-content-center">
         <div class="sidebar  testing-drop">
             <div>
                 <a href="{{ url('/') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -109,7 +109,7 @@ sign up --}}
         </div>
     </div>
 
-    <main class="main d-flex">
+    <main class="col-md-10 main d-flex">
         @yield('content')
     </main>
 

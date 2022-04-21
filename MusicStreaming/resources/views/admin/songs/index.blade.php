@@ -15,8 +15,10 @@
         <table id="table-posts" class="table table-hover">
             <tbody>
                 @foreach ($songs as $song)
+
             <tr data-id="$song->id">
-                <div class="song">
+                <a href="{{route('admin.songs.show', $song->id)}}">
+                <div class="song mb-3">
                     <div class="img">
                         <img src="{{ asset('images/' . $song->id) }}.jpg" alt="">
                     </div>
@@ -24,24 +26,30 @@
                         <audio src="{{ asset('music/' . $song->id) }}.mp3"></audio>
                     <div class="song_info">
                        <p id="title">{{ $song->title }}</p>
-                       <p></p>
+                       <p>{{ $song->artists }}</p>
+                    </div>
+
+                    <div class="flex">
+                    <div class="d-flex align-items-center mr-2">
+                        <a href="{{route('admin.songs.edit', $song->id)}}" class="btn btn-primary mx-4">Edit</a>
+                        <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="form-control btn btn-danger">Remove</button>
+                        </form>
                     </div>
                     <div>
                         <button id="play_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     </div>
+                </div>
 
 
 
                     </div>
 
                 </div>
-                <form style="display: inline-block" method="POST" action="{{route('admin.songs.destroy', $song->id)}}">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="form-control btn btn-danger">Delete</button>
-                </form>
-                <a href="{{route('admin.songs.show', $song->id)}}" class="btn btn-primary">View</a>
-                <a href="{{route('admin.songs.edit', $song->id)}}" class="btn btn-primary mx-4">Edit</a>
+            </a>
+
 
 
 

@@ -53,7 +53,7 @@
                 <input type="file" class="form-control" id="img" name="img" />
               </div>
 
-              <a href="{{ route('admin.musics.index') }}" class="btn btn-outline">Cancel</a>
+              <a href="{{ route('route('admin.playlists')') }}" class="btn btn-outline">Cancel</a>
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </form>
           </div>

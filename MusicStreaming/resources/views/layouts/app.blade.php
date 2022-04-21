@@ -39,7 +39,7 @@ Kenji
 login
 sign up --}}
 <div class=" flex">
-    <div class="wrapper d-flex justify-content-center">
+    <div class="col-md-2 wrapper d-flex justify-content-center">
         <div class="sidebar  testing-drop">
             <div>
                 <a href="{{ url('/') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -66,7 +66,7 @@ sign up --}}
               </a>
                     </li>
                     <li>
-                        <a href="{{ url('admin/admin.playlists') }}" class="nav-link text-white">
+                        <a href="{{ route('login') }}" class="nav-link text-white">
 
                 Songs
               </a>
@@ -92,11 +92,20 @@ sign up --}}
                             {{ Auth::user()->name }}
                         </a>
 
+                        <div class="btn-group dropup" aria-labelledby="navbarDropdown">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+               </a>
+                            </button>
+                            <div class="dropdown-menu">
+                              <!-- Dropdown menu links -->
+                            </div>
+                          </div>
+
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -109,7 +118,7 @@ sign up --}}
         </div>
     </div>
 
-    <main class="main d-flex">
+    <main class="col-md-10 main d-flex">
         @yield('content')
     </main>
 

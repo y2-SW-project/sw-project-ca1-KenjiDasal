@@ -6,33 +6,33 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{$song->title}}
+                    {{$playlist->title}}
                 </div>
                 <div class="card-body">
                     <table id="table-musis" class="table table-hover">
                         <tbody>
                             <tr>
-                                <td rowspan="8"><img src="{{ asset('images/' . $song->id) }}.jpg" width="50%"/></td>
+                                <td rowspan="8"><img src="{{ asset('images/' . $playlist->id) }}.jpg" width="50%"/></td>
                             </tr>
                             <tr>
                                 <td>Artist</td>
-                                <td>{{$song->artists}}</td>
+                                <td>{{$playlist->artists}}</td>
                             </tr>
 
                             <tr>
                                 <td>Start Date</td>
-                                <td>{{$song->created_at}}</td>
+                                <td>{{$playlist->created_at}}</td>
                             </tr>
 
                             <tr>
                                 <td>End Date</td>
-                                <td>{{$song->updated_at}}</td>
+                                <td>{{$playlist->updated_at}}</td>
                             </tr>
                         </tbody>
                     </table>
 
 
-                    <a href="{{route('admin.songs.index')}}" class="btn btn-default">Back</a>
+                    <a href="{{route('admin.playlists.playlist')}}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

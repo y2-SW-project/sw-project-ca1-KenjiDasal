@@ -38,8 +38,8 @@ Kenji
 
 login
 sign up --}}
-<div class=" flex">
-    <div class="wrapper d-flex justify-content-center">
+<div class="flex">
+    <div class="col-md-2 wrapper d-flex justify-content-center">
         <div class="sidebar  testing-drop">
             <div>
                 <a href="{{ route('admin.home') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -61,19 +61,26 @@ sign up --}}
                         @endif @else
                         <li>
                             <a href="{{  route('admin.playlists.playlist') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
-                        </li>
-                    <li>
-                        @endguest
-                        <a href="{{ url('/History') }}" class="nav-link text-white">
-
-                History
-              </a>
+                            @endguest
                     </li>
-                    <li>
-                        <a href="{{ url('admin/admin.playlists') }}" class="nav-link text-white">
 
-                Songs
-              </a>
+                    <li>
+
+
+                        <a href="{{ url('/History') }}" class="nav-link text-white">
+                            History
+                        </a>
+                    </li>
+
+                     <li>
+                        @guest @if (Route::has('login'))
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link text-white">{{ __('Songs') }}</a>
+                        </li>
+                        @endif @else
+                        <li>
+                            <a href="{{  route('admin.songs.index') }}" class="nav-link text-white">{{ __('Songs') }}</a>
+                            @endguest
                     </li>
 
                 </ul>
@@ -96,6 +103,7 @@ sign up --}}
                             {{ Auth::user()->name }}
                         </a>
 
+
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -107,13 +115,26 @@ sign up --}}
                             </form>
                         </div>
                     </li>
+                    <div class="container">
+                        
+                          <div class="dropdown">
+                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Bootstrap</a></li>
+                            <li><a href="#">Material design</a></li>
+                             <li class="divider"></li>
+                            <li><a href="#">Pure CSS</a></li>
+                          </ul>
+                        </div>
+                      </div
                     @endguest
                 </ul>
             </div>
         </div>
     </div>
 
-    <main class="main d-flex">
+    <main class="col-md-10 main d-flex">
         @yield('content')
     </main>
 
