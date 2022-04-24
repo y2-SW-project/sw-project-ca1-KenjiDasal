@@ -43,6 +43,7 @@ class PlaylistController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'artists' => 'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
@@ -50,9 +51,9 @@ class PlaylistController extends Controller
 
         $playlist = new Playlist();
         $playlist->title = $request->input('title');
-        $playlist->title = $request->input('artist');
-        $playlist->title = $request->input('path');
-        $playlist->title = $request->input('images');
+        $playlist->artists = $request->input('artists');
+        $playlist->path = $request->input('path');
+        $playlist->img = $request->input('img');
         $playlist->created_at = $request->input('created_at');
         $playlist->updated_at = $request->input('updated_at');
         $playlist->save();
@@ -103,14 +104,15 @@ class PlaylistController extends Controller
         $request->validate([
             'title' => 'required',
             'path'=>'required',
-            'artist'=>'required',
+            'artists'=>'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
 
-        $playlist->artist = $request->input('artist');
+        $playlist->artists = $request->input('artists');
         $playlist->title = $request->input('title');
-        $playlist->title = $request->input('artist');
+        $playlist->path = $request->input('path');
+        $playlist->images = $request->input('images');
         $playlist->created_at = $request->input('created_at');
         $playlist->updated_at = $request->input('updated_at');
         $playlist->save();
@@ -129,7 +131,7 @@ class PlaylistController extends Controller
         $playlist = Playlist::findOrFail($id);
         $playlist->delete();
 
-        return redirect()->route('admin.playlists.destroy');
+        return redirect()->route('admin.playlists.playlist');
     }
 
 

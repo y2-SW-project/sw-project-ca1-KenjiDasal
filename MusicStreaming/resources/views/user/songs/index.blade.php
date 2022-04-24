@@ -10,7 +10,9 @@
 
         <div class="tracks ">
 
-
+            @if (count($playlists)=== 0)
+            <p>There are no post.</p>
+        @else
             <!-- list of song will add here from 'song_list.js' file -->
             @foreach ($songs as $song)
                 <table id="table-posts" class="table table-hover">

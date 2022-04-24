@@ -4,7 +4,6 @@
 <div class="container full-height-grow">
     <header class="main-header">
       <a href="#" class="brand-logo">
-        <img src="https://i.ibb.co/yRkkT0M/logo.png" />
         <h1 class="brand-logo-name">Kordz</h1>
       </a>
       <nav class="main-nav">

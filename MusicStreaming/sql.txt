@@ -1,3 +1,17 @@
-INSERT INTO `songs` (`id`, `title`, `artists`, `path`, `created_at`, `updated_at`) VALUES (NULL, 'Moments Like this', 'The After', '1', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Bad Habits', 'Ed Sheeran', '2', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Right Now', 'Fabvl', '3', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'No Sleep', 'Neffex', '4', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Light Switch', 'Charlie Puth', '5', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Still Alive', 'NateWantsToBattle', '6', '2022-04-20 23:14:50', '2022-04-20 23:14:50');
+INSERT INTO `songs` (`id`, `title`, `artists`, `path`, `img`, `created_at`, `updated_at`)
+VALUES
+(NULL, 'Moments Like this', 'The After', '1.mp3', '1.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Bad Habits', 'Ed Sheeran', '2.mp3', '2.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Right Now', 'Fabvl', '3.mp3', '3.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'No Sleep', 'Neffex', '4.mp3', '4.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Light Switch', 'Charlie Puth', '5.mp3', '5.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Still Alive', 'NateWantsToBattle', '6.mp3', '6.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50');
 
-INSERT INTO `playlists` (`id`, `title`, `artists`, `path`, `created_at`, `updated_at`) VALUES (NULL, 'Moments Like this', 'The After', '1', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Bad Habits', 'Ed Sheeran', '2', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Right Now', 'Fabvl', '3', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'No Sleep', 'Neffex', '4', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Light Switch', 'Charlie Puth', '5', '2022-04-20 23:14:50', '2022-04-20 23:14:50'), (NULL, 'Still Alive', 'NateWantsToBattle', '6', '2022-04-20 23:14:50', '2022-04-20 23:14:50');
+INSERT INTO `playlists` (`id`, `title`, `artists`, `path`, `img`, `created_at`, `updated_at`)
+VALUES
+(NULL, 'Moments Like this', 'The After', '1.mp3', '1.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Bad Habits', 'Ed Sheeran', '2.mp3', '2.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Right Now', 'Fabvl', '3.mp3', '3.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'No Sleep', 'Neffex', '4.mp3', '4.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Light Switch', 'Charlie Puth', '5.mp3', '5.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50'),
+(NULL, 'Still Alive', 'NateWantsToBattle', '6.mp3', '6.jpg', '2022-04-20 23:14:50', '2022-04-20 23:14:50');

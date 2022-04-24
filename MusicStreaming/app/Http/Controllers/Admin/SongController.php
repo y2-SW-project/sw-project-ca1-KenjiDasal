@@ -43,6 +43,7 @@ class SongController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'artists' => 'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
@@ -50,6 +51,15 @@ class SongController extends Controller
 
         $song = new Song();
         $song->title = $request->input('title');
+        $song->artists = $request->input('artists');
+        $song->path = $request->input('path');
+        if($request->hasfile('img')){
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('images/', $filename);
+            $song -> img = $filename;
+        }
         $song->created_at = $request->input('created_at');
         $song->updated_at = $request->input('updated_at');
         $song->save();
@@ -67,7 +77,7 @@ class SongController extends Controller
     {
         $song = Song::findOrFail($id);
 
-        return view ('admin.songs.show', [
+        return view ('admin.songs.details', [
 
 
             'song' => $song
@@ -99,17 +109,21 @@ class SongController extends Controller
         $song = Song::findOrFail($id);
         $request->validate([
             'title' => 'required',
+            'path'=>'required',
+            'artists'=>'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
 
-        $song->artist = $request->input('artist');
+        $song->artists = $request->input('artists');
         $song->title = $request->input('title');
+        $song->path = $request->input('path');
+        $song->img = $request->input('img');
         $song->created_at = $request->input('created_at');
         $song->updated_at = $request->input('updated_at');
         $song->save();
 
-        return redirect()->route('admin.songs.index');
+        return redirect()->route('admin.songs.update');
     }
 
     /**

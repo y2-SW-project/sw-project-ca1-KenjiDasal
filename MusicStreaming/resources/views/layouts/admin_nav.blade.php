@@ -99,13 +99,10 @@ sign up --}}
                     </li>
                     @endif @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="text-white" href="#" role="button" >
                             {{ Auth::user()->name }}
                         </a>
-
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="  text-white"  href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -113,21 +110,8 @@ sign up --}}
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                        </div>
                     </li>
-                    <div class="container">
-                        
-                          <div class="dropdown">
-                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">Bootstrap</a></li>
-                            <li><a href="#">Material design</a></li>
-                             <li class="divider"></li>
-                            <li><a href="#">Pure CSS</a></li>
-                          </ul>
-                        </div>
-                      </div
+
                     @endguest
                 </ul>
             </div>
