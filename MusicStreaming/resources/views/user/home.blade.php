@@ -14,11 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in! user in media musics') }}
+                    {{ __('You are logged in! user in media songs') }}
 
                     <br>
 
-                     <a href="{{ route('user.musics.index')}}">View musics</a>
+                     <a href="{{ route('user.songs.index')}}">View songs</a>
                 </div>
             </div>
         </div>

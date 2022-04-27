@@ -38,38 +38,49 @@ Kenji
 
 login
 sign up --}}
-<div class=" flex">
+<div class="flex">
     <div class="col-md-2 wrapper d-flex justify-content-center">
         <div class="sidebar  testing-drop">
             <div>
-                <a href="{{ url('/') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="{{ route('user.home') }}" class="text-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-4 text-center">KORDZ</span>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link text-white" aria-current="page">
+                        <a href="{{ route('user.home') }}" class="nav-link text-white" aria-current="page">
 
                 Home
               </a>
                     </li>
                     <li>
-                        <a href="{{ url('/Playlist') }}" class="nav-link text-white">
-
-                Playlist
-              </a>
+                        @guest @if (Route::has('login'))
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
+                        </li>
+                        @endif @else
+                        <li>
+                            <a href="{{  route('user.playlists.index') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
+                            @endguest
                     </li>
+
                     <li>
+
+
                         <a href="{{ url('/History') }}" class="nav-link text-white">
-
-                History
-              </a>
+                            History
+                        </a>
                     </li>
-                    <li>
-                        <a href="{{ url('admin/musics') }}" class="nav-link text-white">
 
-                Songs
-              </a>
+                     <li>
+                        @guest @if (Route::has('login'))
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link text-white">{{ __('Songs') }}</a>
+                        </li>
+                        @endif @else
+                        <li>
+                            <a href="{{  route('user.songs.index') }}" class="nav-link text-white">{{ __('Songs') }}</a>
+                            @endguest
                     </li>
 
                 </ul>
@@ -88,12 +99,10 @@ sign up --}}
                     </li>
                     @endif @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="text-white" href="#" role="button" >
                             {{ Auth::user()->name }}
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="  text-white"  href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -101,8 +110,8 @@ sign up --}}
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                        </div>
                     </li>
+
                     @endguest
                 </ul>
             </div>

@@ -44,29 +44,30 @@ class SongController extends Controller
         $request->validate([
             'title' => 'required',
             'artists' => 'required',
+            'path' => 'required',
+            'img' => 'required|mimes:jpg,png,tiff,jpeg|max:5048',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
+
+        $newPathName = time() . '-' . $request->title . '.' . $request->path->extension();
+        $request->path->move(public_path('music'), $newPathName);
+        $newImgName = time() . '-' . $request->title . '.' . $request->img->extension();
+        $request->img->move(public_path('images'), $newImgName);
+
 
 
         $song = new Song();
         $song->title = $request->input('title');
         $song->artists = $request->input('artists');
-        $song->path = $request->input('path');
-        if($request->hasfile('img')){
-            $file = $request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('images/', $filename);
-            $song -> img = $filename;
-        }
+        $song->path = $newPathName;
+        $song->img = $newImgName;
         $song->created_at = $request->input('created_at');
         $song->updated_at = $request->input('updated_at');
         $song->save();
 
-        return redirect()->route('admin.songs.index');
+        return redirect()->back();
     }
-
     /**
      * Display the specified resource.
      *
@@ -77,9 +78,7 @@ class SongController extends Controller
     {
         $song = Song::findOrFail($id);
 
-        return view ('admin.songs.details', [
-
-
+        return view('admin.songs.details', [
             'song' => $song
         ]);
     }
@@ -92,7 +91,7 @@ class SongController extends Controller
     public function edit($id)
     {
         $song = Song::findOrFail($id);
-        return view ('admin.songs.edit', [
+        return view('admin.songs.edit', [
             'song' => $song
         ]);
     }
@@ -109,8 +108,8 @@ class SongController extends Controller
         $song = Song::findOrFail($id);
         $request->validate([
             'title' => 'required',
-            'path'=>'required',
-            'artists'=>'required',
+            'path' => 'required',
+            'artists' => 'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
@@ -139,6 +138,4 @@ class SongController extends Controller
 
         return redirect()->route('admin.songs.index');
     }
-
-
 }

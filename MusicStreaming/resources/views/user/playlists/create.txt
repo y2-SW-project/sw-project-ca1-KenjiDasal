@@ -1,0 +1,41 @@
+@extends('layouts.admin_nav')
+
+@section ('content')
+  <div class="main">
+    <div>
+      <div class="col-md-12 ">
+        <div class="card">
+          <div class="card-header">
+            Add new Post
+          </div>
+          <div class="card-body">
+          <!-- this block is ran if the validation code in the controller fails
+          this code looks after displaying the correct error message to the user -->
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
+            <form method="POST" action="{{ route('admin.playlists.store')  }}">
+              <input type="hidden" name="_token" value="{{  csrf_token()  }}">
+              <div>
+
+            
+
+
+
+
+              <a href="{{ route('admin.playlists.playlist') }}" class="btn btn-outline">Cancel</a>
+              <button type="submit" class="btn btn-primary float-right">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection
+

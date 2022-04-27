@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('artists');
             $table->string('path');
-            $table->string('img');
             $table->timestamps();
         });
     }

@@ -44,16 +44,24 @@ class PlaylistController extends Controller
         $request->validate([
             'title' => 'required',
             'artists' => 'required',
+            'path' => 'required',
+            'img' => 'required',
             'created_at' => 'required|date',
             'updated_at' => 'required|date'
         ]);
+
+        $PathName = time() . '-' . $request->title . '.' . $request->path->extension();
+        $request->path->move(public_path('music'), $PathName);
+        $ImgName = time() . '-' . $request->title . '.' . $request->img->extension();
+        $request->img->move(public_path('images'), $ImgName);
+
 
 
         $playlist = new Playlist();
         $playlist->title = $request->input('title');
         $playlist->artists = $request->input('artists');
-        $playlist->path = $request->input('path');
-        $playlist->img = $request->input('img');
+        $playlist->path = $PathName;
+        $playlist->img = $ImgName;
         $playlist->created_at = $request->input('created_at');
         $playlist->updated_at = $request->input('updated_at');
         $playlist->save();

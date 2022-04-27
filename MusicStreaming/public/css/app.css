@@ -470,9 +470,9 @@
                                 /*small music player*/
                                 
                                 .small_music_player {
-                                    position: absolute;
+                                    position: fixed;
                                     bottom: 0;
-                                    left: 0;
+                                    left: 200px;
                                     width: 97%;
                                     padding: 15px 20px 35px 20px;
                                     display: flex;

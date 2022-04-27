@@ -12,15 +12,15 @@
                         <!-- this block is ran if the validation code in the controller fails
               this code looks after displaying the correct error message to the user -->
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
+                            <div class="alert alert-danger ">
+                                <ul class="d-flex">
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                        <li class="mx-3">{{ $error }}</li>
                                     @endforeach
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.songs.store') }}">
+                        <form method="POST" action="{{ route('admin.songs.store') }}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="flex">

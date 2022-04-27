@@ -1,53 +1,42 @@
 @extends('layouts.user_nav')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    music By: {{$music->artist}}
-                </div>
-                <div class="card-body">
-                    <table id="table-musis" class="table table-hover">
-                        <tbody>
-                            <tr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        {{ $song->title }}
+                    </div>
+                    <div class="card-body">
+                        <table id="table-musis" class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <td rowspan="8"><img src="{{ asset('images/' . $song->img) }}" width="50%" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Artist</td>
+                                    <td>{{ $song->artists }}</td>
+                                </tr>
 
-                                    <img src="{{$music-> img}}" alt="">
+                                <tr>
+                                    <td>Start Date</td>
+                                    <td>{{ $song->created_at }}</td>
+                                </tr>
 
-                            </tr>
-                            <tr>
-                                <td>Title</td>
-                                <td>{{$music->title}}</td>
-                            </tr>
+                                <tr>
+                                    <td>End Date</td>
+                                    <td>{{ $song->updated_at }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                            <tr>
-                                <td>Description</td>
-                                <td>{{$music->description}}</td>
-                            </tr>
 
-                            <tr>
-                                <td>Likes</td>
-                                <td>{{$music->likes}}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Start Date</td>
-                                <td>{{$music->start_date}}</td>
-                            </tr>
-
-                            <tr>
-                                <td>End Date</td>
-                                <td>{{$music->end_date}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <a href="{{route('user.musics.index')}}" class="btn btn-default">Back</a>
+                        <a href="{{ route('user.songs.index') }}" class="btn btn-default">Back</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
-

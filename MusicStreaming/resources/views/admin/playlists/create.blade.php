@@ -6,21 +6,21 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Edit Playlist playlist
+                        Create playlist
                     </div>
                     <div class="card-body">
                         <!-- this block is ran if the validation code in the controller fails
               this code looks after displaying the correct error message to the user -->
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
+                            <div class="alert alert-danger ">
+                                <ul class="d-flex">
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                        <li class="mx-3">{{ $error }}</li>
                                     @endforeach
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin.playlists.store') }}">
+                        <form method="POST" action="{{ route('admin.playlists.store') }}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="flex">
@@ -29,12 +29,13 @@
                                     <input type="text" class="form-control" id="artists" name="artists"
                                         value="{{ old('artists') }}" />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group ml-3">
                                     <label for="title">Title</label>
                                     <input type="text" class="form-control" id="title" name="title"
                                         value="{{ old('title') }}" />
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="path">Video</label>
                                 <input type="file" class="form-control" id="path" name="path" />
