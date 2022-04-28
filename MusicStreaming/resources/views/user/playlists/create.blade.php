@@ -59,7 +59,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('user.playlists.index') }}" class="btn btn-outline">Cancel</a>
+                            <a href="{{ route('user.playlists.playlist') }}" class="btn btn-outline">Cancel</a>
                             <button type="submit" class="btn btn-primary float-right">Submit</button>
                         </form>
                     </div>

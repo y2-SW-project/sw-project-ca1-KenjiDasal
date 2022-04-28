@@ -8,7 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\SongController as UserSongController;
 use App\Http\Controllers\Admin\SongController as AdminSongController;
-use App\Http\Controllers\User\PlaylistController as UserPlaylistController;
+use App\Http\Controllers\User\UserPlaylistController as UserPlaylistController;
 use App\Http\Controllers\Admin\PlaylistController as AdminPlaylistController;
 
 
@@ -53,16 +53,12 @@ Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
 // USER SONGS
-Route::get('/user/songs/', [UserSongController::class, 'index'])->name('user.songs.index');
-Route::get('/user/songs/create', [UserSongController::class, 'create'])->name('user.songs.create');
+Route::any('/user/songs/', [UserSongController::class, 'index'])->name('user.songs.index');
 Route::get('/user/songs/{id}', [UserSongController::class, 'show'])->name('user.songs.show');
-Route::post('/user/songs/store', [UserSongController::class, 'store'])->name('user.songs.store');
-Route::get('/user/songs/{id}/edit', [UserSongController::class, 'edit'])->name('user.songs.edit');
-Route::put('user/songs/{id}', [UserSongController::class, 'update'])->name('user.songs.update');
-Route::delete('user/songs/{id}', [UserSongController::class, 'destroy'])->name('user.songs.destroy');
 
 // USER PLAYLIST
-Route::get('/user/songs/playlist', [UserPlaylistController::class, 'index'])->name('user.playlists.index');
+
+Route::get('/user/playlist', [UserPlaylistController::class, 'index'])->name('user.playlists.playlist');
 Route::get('/user/songs/playlist/create', [UserPlaylistController::class, 'create'])->name('user.playlists.create');
 Route::get('/user/songs/playlist/{id}', [UserPlaylistController::class, 'show'])->name('user.playlists.details');
 Route::post('/user/songs/store/playlist', [UserPlaylistController::class, 'store'])->name('user.playlists.store');

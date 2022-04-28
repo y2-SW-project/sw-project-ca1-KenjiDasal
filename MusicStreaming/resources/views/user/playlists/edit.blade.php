@@ -38,8 +38,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="path">Images</label>
+                                <label for="path">Music</label>
                                 <input type="text" class="form-control" id="path" name="path"
+                                    value="{{ old('img', $playlist->path) }}" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="img">Images</label>
+                                <input type="text" class="form-control" id="img" name="img"
                                     value="{{ old('img', $playlist->path) }}" />
                             </div>
 
@@ -56,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('user.playlists.index') }}" class="btn btn-outline">Cancel</a>
+                            <a href="{{ route('user.playlists.playlist') }}" class="btn btn-outline">Cancel</a>
                             <button type="submit" class="btn btn-primary float-right">Submit</button>
                         </form>
                     </div>

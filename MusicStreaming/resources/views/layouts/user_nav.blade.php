@@ -60,7 +60,7 @@ sign up --}}
                         </li>
                         @endif @else
                         <li>
-                            <a href="{{  route('user.playlists.index') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
+                            <a href="{{  route('user.playlists.playlist') }}" class="nav-link text-white">{{ __('Playlist') }}</a>
                             @endguest
                     </li>
 
