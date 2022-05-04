@@ -46,7 +46,7 @@
                 <div class="d-flex">
                     <div class="s_player_img">
                         <div class="playing_img">
-                            <img src="{{ asset('images/' . $song->id) }}.jpg" alt="">
+                            <img src="{{ asset('images/' . $song->img) }}.jpg" alt="">
                             {{-- http://localhost:8000/images/1.jpg --}}
                         </div>
                         <!-- wave animation part -->
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="song_img">
-                    <img src="{{ asset('images/' . $song->id) }}.jpg" alt="">
+                    <img src="{{ asset('images/' . $song->img) }}.jpg" alt="">
                 </div>
 
                 <div class="song_description">
